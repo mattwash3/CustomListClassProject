@@ -16,6 +16,10 @@ namespace CustomListClass
             numbers.Add(6);
             numbers.Add(10);
             numbers.Add(16);
+            foreach (int thangs in thangsList)
+            {
+                Console.WriteLine(thangs);
+            }
         }
     }
 }
