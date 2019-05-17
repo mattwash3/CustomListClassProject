@@ -13,6 +13,8 @@ namespace CustomListClass
         public int Count { get { return count; } }
         private int count;
         private int capacity;
+        public int thang;
+        public int numbers;
 
         public T this[int i]
         {
@@ -25,22 +27,42 @@ namespace CustomListClass
             count = 0;
             capacity = 4;
             thangs = new T[capacity];
+            thang.Add(thangs);
         }
 
         public void Add(T thang)
         {
             // what if we run out of room?
             thangs[count] = thang; // where do we add an item? (not always 0)
+            count++;
             if (count == capacity)
             {
-
-            }
-            count++;
+                capacity *= 2;               
+                T[]newArray = new T[capacity];
+                for (int item = 0; item < count; item++)
+                {
+                    newArray[item] = thangs[item];
+                }
+                thangs = newArray;
+            }   
         }
 
-        public void Remove()
+        public void Remove(T thangToRemove)
         {
-
+            thangs[count] = thangToRemove;
+            count--;
+            for(int item = 0; item < thangToRemove.Length - 1; item++)
+            {
+                thangToRemove[item] = thangToRemove[item + 1];
+            }
+            thangs.Resize();
+            //thangToRemove;
+            count--;
+            if (thangs[i].Equals(thangToRemove))
+            {
+                
+            }
+            
         }
 
         public void Length()
@@ -48,19 +70,25 @@ namespace CustomListClass
 
         }
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+
         public void Zip()
         {
 
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            for (int index = 0; index < thangs.Lenth; index++)
+            for (int i = 0; i < thangs.Length; i++)
             {
-                yield return thangs[index];
-                yield return thangsList[index];
+                yield return thangs[i];
+                yield return thangsList[i];
             }
-            yield return "Stuff and Thangs";
+            yield return ;
         }
     }
 

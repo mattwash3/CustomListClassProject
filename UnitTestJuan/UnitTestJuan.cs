@@ -97,7 +97,7 @@ namespace UnitTestJuan
             myList.Add(value4);
 
             //Assert
-            Assert.AreEqual(value1, myList[1]);
+            Assert.AreEqual(expectedCount, myList[1]);
         }
 
         public void AddFiveIntegersToCustomList_CheckIntegerAtIndexFour()
@@ -119,7 +119,7 @@ namespace UnitTestJuan
             myList.Add(value4);
 
             //Assert
-            Assert.AreEqual(value3, myList[4]);
+            Assert.AreEqual(expectedCount, myList[4]);
         }
 
         public void RemoveSpecificIntegerFromCustomList()
@@ -140,7 +140,7 @@ namespace UnitTestJuan
             myList.Remove(value1);
 
             //Assert
-            Assert.AreEqual(expectedCount, myList.Remove(value1));
+            Assert.AreEqual(expectedCount, myList.Remove());
         }
     }
 }
