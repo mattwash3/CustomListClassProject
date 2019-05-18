@@ -12,51 +12,38 @@ namespace UnitTestJuan
             //Arrange
             CustomList<int> myList = new CustomList<int>();
             int value = 1;
+            int expected = 1;
 
             //Act
             myList.Add(value);
+            int actual = myList.Count;
 
             //Assert
-            Assert.AreEqual(value, myList[0]);
+            Assert.AreEqual(expected, actual);
         }
 
-        public void AddIntegerToCustomList_CheckIntergerAtOneIndex()
+        [TestMethod]
+        public void AddIntegerToCustomList_CheckIntergerAtTwoIndex()
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
             int value = 1;
             int value1 = 3;
             int value2 = 6;
+            int expected = 6;
 
             //Act
             myList.Add(value);
             myList.Add(value1);
             myList.Add(value2);
+            int actual = myList[2];
 
             //Assert
-            Assert.AreEqual(value1, myList[1]);
+            Assert.AreEqual(expected, actual);
         }
 
-        public void AddIntegerToCustomList_CheckIntegerAtFourIndex()
-        {
-            //Arrange
-            CustomList<int> myList = new CustomList<int>();
-            int value = 1;
-            int value1 = 3;
-            int value2 = 6;
-            int value3 = 10;
-
-            //Act
-            myList.Add(value);
-            myList.Add(value1);
-            myList.Add(value2);
-            myList.Add(value3);
-
-            //Assert
-            Assert.AreEqual(value3, myList[3]);
-        }
-
-        public void AddFiveIntegersToCustomList()
+        [TestMethod]
+        public void AddIntegerToCustomList_CheckIntegerAtThreeIndex()
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
@@ -64,21 +51,21 @@ namespace UnitTestJuan
             int value1 = 3;
             int value2 = 6;
             int value3 = 10;
-            int value4 = 16;
-            int expectedCount = 5;
+            int expected = 10;
 
             //Act
             myList.Add(value);
             myList.Add(value1);
             myList.Add(value2);
             myList.Add(value3);
-            myList.Add(value4);
+            int actual = myList[3];
 
             //Assert
-            Assert.AreEqual(expectedCount, myList.Count);
+            Assert.AreEqual(expected, actual);
         }
 
-        public void AddFiveIntegersToCustomList_CheckIntegerAtIndexOne()
+        [TestMethod]
+        public void AddFiveIntegersToCustomList_CheckForCount()
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
@@ -87,7 +74,7 @@ namespace UnitTestJuan
             int value2 = 6;
             int value3 = 10;
             int value4 = 16;
-            int expectedCount = 5;
+            int expected = 5;
 
             //Act
             myList.Add(value);
@@ -95,11 +82,40 @@ namespace UnitTestJuan
             myList.Add(value2);
             myList.Add(value3);
             myList.Add(value4);
+            int actual = myList.Count;
+
 
             //Assert
-            Assert.AreEqual(expectedCount, myList[1]);
+            Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void AddSixIntegersToCustomList_CheckCapacity()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int value = 1;
+            int value1 = 3;
+            int value2 = 6;
+            int value3 = 10;
+            int value4 = 16;
+            int value5 = 20;
+            int expected = 8;
+
+            //Act
+            myList.Add(value);
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            myList.Add(value4);
+            myList.Add(value5);
+            int actual = myList.Capacity;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void AddFiveIntegersToCustomList_CheckIntegerAtIndexFour()
         {
             //Arrange
@@ -109,7 +125,7 @@ namespace UnitTestJuan
             int value2 = 6;
             int value3 = 10;
             int value4 = 16;
-            int expectedCount = 5;
+            int expected = 16;
 
             //Act
             myList.Add(value);
@@ -117,30 +133,19 @@ namespace UnitTestJuan
             myList.Add(value2);
             myList.Add(value3);
             myList.Add(value4);
+            int actual = myList[4];
 
             //Assert
-            Assert.AreEqual(expectedCount, myList[4]);
-        }
-
-        public void RemoveSpecificIntegerFromCustomList()
-        {
-            //Arrange
-            CustomList<int> myList = new CustomList<int>();
-            int value = 1;
-            int value1 = 3;
-            int value2 = 6;
-            int value3 = 10;
-            int expectedCount = 1;
-
-            //Act
-            myList.Add(value);
-            myList.Add(value1);
-            myList.Add(value2);
-            myList.Add(value3);
-            myList.Remove(value1);
-
-            //Assert
-            Assert.AreEqual(expectedCount, myList.Remove());
+            Assert.AreEqual(expected, actual);
         }
     }
+   
+
+
+
+
+
+
+
+    
 }

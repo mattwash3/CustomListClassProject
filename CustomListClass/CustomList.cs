@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +10,18 @@ namespace CustomListClass
     public class CustomList<T> : IEnumerable
     {
         private T[] thangs;
-        private CustomList<T> thangsList;
+
         public int Count { get { return count; } }
         private int count;
+        public int Capacity { get { return capacity; } }
         private int capacity;
         public int thang;
         public int numbers;
 
-        public T this[int i]
+        public T this[int indexRange]
         {
-            get { return thangs[i]; }
-            set { thangs[i] = value; }
+            get { return thangs[indexRange]; }
+            set { thangs[indexRange] = value; }
         }
 
         public CustomList()
@@ -27,14 +29,12 @@ namespace CustomListClass
             count = 0;
             capacity = 4;
             thangs = new T[capacity];
-            thang.Add(thangs);
+
         }
 
         public void Add(T thang)
         {
-            // what if we run out of room?
-            thangs[count] = thang; // where do we add an item? (not always 0)
-            count++;
+
             if (count == capacity)
             {
                 capacity *= 2;               
@@ -44,25 +44,27 @@ namespace CustomListClass
                     newArray[item] = thangs[item];
                 }
                 thangs = newArray;
-            }   
+            }
+            thangs[count] = thang;
+            count++;
         }
 
-        public void Remove(T thangToRemove)
+        public bool Remove(T thangToRemove)
         {
-            thangs[count] = thangToRemove;
-            count--;
-            for(int item = 0; item < thangToRemove.Length - 1; item++)
-            {
-                thangToRemove[item] = thangToRemove[item + 1];
+            for (int i = 0; i < count; i++)
+            {  
+                if (thangs[i].Equals(thangToRemove))
+                {
+                    for(int j = i; j < (count -1); j++)
+                    {
+                        thangs[j] = thangs[j + 1];
+                    }
+                    count--;
+                    thangs[count] = default(T); 
+                    return true;
+                }               
             }
-            thangs.Resize();
-            //thangToRemove;
-            count--;
-            if (thangs[i].Equals(thangToRemove))
-            {
-                
-            }
-            
+            return false;
         }
 
         public void Length()
@@ -75,21 +77,18 @@ namespace CustomListClass
             return base.ToString();
         }
 
-
         public void Zip()
         {
 
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < thangs.Length; i++)
             {
                 yield return thangs[i];
-                yield return thangsList[i];
-            }
-            yield return ;
-        }
+            }           
+        }    
     }
 
 
