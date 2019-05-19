@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomListClass;
-namespace UnitTestJuan
+namespace UnitTestRamirez
 {
+    [TestClass]
     public class UnitTestRamirez
     {
             [TestMethod]

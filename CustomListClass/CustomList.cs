@@ -67,14 +67,15 @@ namespace CustomListClass
             return false;
         }
 
-        public void Length()
+        public override string ToString(int value)
         {
-
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
+            string hisMama = "";
+            for (int yoMama = 0; yoMama < count; yoMama++)
+            {
+                hisMama += thangs[yoMama].ToString() + ",";               
+            }
+            hisMama += thangs[count -1].ToString();
+            return hisMama;
         }
 
         public void Zip()
