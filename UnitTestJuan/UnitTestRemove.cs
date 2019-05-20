@@ -77,27 +77,27 @@ namespace UnitTestRamirez
                 Assert.AreEqual(expected, actual);
             }
 
-            //[TestMethod]
-            //public void Remove()
-            //{
-            //    //Arrange
-            //    CustomList<int> myList = new CustomList<int>();
-            //    int value = 1;
-            //    int value1 = 3;
-            //    int value2 = 6;
-            //    int value3 = 10;
-            //    int expected = ;
+        [TestMethod]
+        public void Remove()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int value = 1;
+            int value1 = 3;
+            int value2 = 6;
+            int value3 = 10;
+            int expected = ;
 
-            //    //Act
-            //    myList.Add(value);
-            //    myList.Add(value1);
-            //    myList.Add(value2);
-            //    myList.Add(value3);
-            //    int actual = ;
+            //Act
+            myList.Add(value);
+            myList.Add(value1);
+            myList.Add(value2);
+            myList.Add(value3);
+            int actual = ;
 
-            //    //Assert
-            //    Assert.AreEqual(expected, actual);
-            //}
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 

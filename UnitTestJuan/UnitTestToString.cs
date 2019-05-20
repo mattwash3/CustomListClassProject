@@ -4,7 +4,7 @@ using CustomListClass;
 namespace UnitTestJuan
 {
     [TestClass]
-    public class UnitTestGarcia
+    public class UnitTestToString
     {
         [TestMethod]
         public void ConvertToString_DisplayCustomListAsString()

@@ -78,6 +78,16 @@ namespace CustomListClass
             return hisMama;
         }
 
+        public static int OverloadPlusOperator()
+        {
+
+        }
+
+        public static int OverloadMinusOperator()
+        {
+
+        }
+
         public void Zip()
         {
 
