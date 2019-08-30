@@ -10,7 +10,7 @@ namespace UnitTestRamirez
             public void RemoveIndexValueFromCustomList_CheckCount()
             {
                 //Arrange
-                CustomList<int> myList = new CustomList<int>();
+                CustomList<int> list = new CustomList<int>();
                 int value = 1;
                 int value1 = 3;
                 int value2 = 6;
@@ -19,12 +19,12 @@ namespace UnitTestRamirez
 
 
                 //Act
-                myList.Add(value);
-                myList.Add(value1);
-                myList.Add(value2);
-                myList.Add(value3);
-                myList.Remove(value);
-                int actual = myList.Count;
+                list.Add(value);
+                list.Add(value1);
+                list.Add(value2);
+                list.Add(value3);
+                list.Remove(value);
+                int actual = list.Count;
 
                 //Assert
                 Assert.AreEqual(expected, actual);
@@ -34,7 +34,7 @@ namespace UnitTestRamirez
             public void RemoveValueFromCustomList_CheckCapacity()
             {
                 //Arrange
-                CustomList<int> myList = new CustomList<int>();
+                CustomList<int> list = new CustomList<int>();
                 int value = 1;
                 int value1 = 3;
                 int value2 = 6;
@@ -43,12 +43,12 @@ namespace UnitTestRamirez
 
 
                 //Act
-                myList.Add(value);
-                myList.Add(value1);
-                myList.Add(value2);
-                myList.Add(value3);
-                myList.Remove(value);
-                int actual = myList.Capacity;
+                list.Add(value);
+                list.Add(value1);
+                list.Add(value2);
+                list.Add(value3);
+                list.Remove(value);
+                int actual = list.Capacity;
 
                 //Assert
                 Assert.AreEqual(expected, actual);
@@ -58,7 +58,7 @@ namespace UnitTestRamirez
             public void RemoveValueAtIndex_MoveIndexesOverToFillIn_CheckIndexAtRemovedIndexSpot()
             {
                 //Arrange
-                CustomList<int> myList = new CustomList<int>();
+                CustomList<int> list = new CustomList<int>();
                 int value = 1;
                 int value1 = 3;
                 int value2 = 6;
@@ -66,39 +66,59 @@ namespace UnitTestRamirez
                 int expected = 6;
 
                 //Act
-                myList.Add(value);
-                myList.Add(value1);
-                myList.Add(value2);
-                myList.Add(value3);
-                myList.Remove(value1);
-                int actual = myList[1];
+                list.Add(value);
+                list.Add(value1);
+                list.Add(value2);
+                list.Add(value3);
+                list.Remove(value1);
+                int actual = list[1];
 
                 //Assert
                 Assert.AreEqual(expected, actual);
             }
 
         [TestMethod]
-        public void Remove()
+        public void RemoveFromList_CheckFalse()
         {
             //Arrange
-            CustomList<int> myList = new CustomList<int>();
+            CustomList<int> list = new CustomList<int>();
             int value = 1;
             int value1 = 3;
             int value2 = 6;
             int value3 = 10;
-            int expected = ;
+            bool expected = false;
 
             //Act
-            myList.Add(value);
-            myList.Add(value1);
-            myList.Add(value2);
-            myList.Add(value3);
-            int actual = ;
+            list.Add(value);
+            list.Add(value1);
+            list.Add(value2);
+            list.Add(value3);
+            bool actual = list.Remove(value3);
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
 
+        public void RemoveFromList_CheckCounter()
+        {
+            // arrange
+            CustomList<int> list = new CustomList<int>();
+            int value = 1;
+            int value1 = 5;
+            int expected = 1;
+
+
+
+            // act
+            list.Add(value);
+            list.Add(value1);
+            list.Remove(value1);
+            int actual = list.Count;
+
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 
 }

@@ -1,0 +1,45 @@
+CustomList<T> - Operator Overload Method (this method will remove any/all objects in the first list that is present
+in the second list);
+
+//Parameters
+- for this example there will be 2 lists being used. It will check to see if there is the same value/object in the
+second list and if there is then it will remove it from the first list. If however there is no values/objects that
+are the same between the lists then it will no remove anything;
+
+//Execution
+first list - second list
+
+//Return
+returns the first list (CustomList<T>) with the values/objects from the second list removed; 
+
+//Code Example:
+
+--(instantiate your lists to start, and declare/enter the values being used)--
+CustomList<T> firstList = new CustomList<T>();
+CustomList<T> secondList = new CustomList<T>();
+int value = 15;
+int value1 = 3;
+int value2 = 57;
+int value3 = 9;
+int value4 = 82;
+
+--(add the values you are using to your lists)--
+firstList.Add(value);
+firstList.Add(value1);
+firstList.Add(value2);
+secondList.Add(value2);
+secondList.Add(value3);
+secondList.Add(value4);
+
+--(displaying how the lists will look with the values at each index before the overload method happens)--
+//firstList = { 15,3,57 }
+//secondList = { 57,9,82 }
+
+--(what you will do to overload the 2 lists)--
+firstList = firstList - secondList;
+
+--(firstList at the [2] has the same value as secondList at the [0]. The overload method will recognize the values
+as the same and remove them from the lists, and return a new list for firstList)--
+
+firstList = { 15,3 }
+
